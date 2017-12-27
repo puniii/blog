@@ -15,7 +15,7 @@ class BlogsController < ApplicationController
   end
   
   def create
-    Blog.create(blog_params)
+    #Blog.create(blog_params)　←削除
     @blog = Blog.new(blog_params)
 
     if @blog.save
@@ -50,9 +50,7 @@ class BlogsController < ApplicationController
   
   def confirm
     @blog = Blog.new(blog_params)
-    if @blog.invalid?
-        render :new
-    end    
+    render :new if @blog.invalid?
   end
   
   private
